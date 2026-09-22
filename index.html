@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DYL Method | Links</title>
+<meta name="description" content="Period freedom — detox + hormone harmony guided by nature & the stars. Free health intake, herbal shop, bootcamp and more from DYL Method.">
+<meta property="og:title" content="DYL Method">
+<meta property="og:description" content="Period freedom — detox + hormone harmony guided by nature & the stars.">
+<meta property="og:image" content="img/founder.jpg">
+<meta name="theme-color" content="#16545f">
+<link rel="icon" href="img/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal-deep: #16545f;
+    --teal: #1e6b7b;
+    --green: #3f9b4a;
+    --lime: #8bc34a;
+    --cream: #f7f3ea;
+    --card: #ffffff;
+    --ink: #1f2a2c;
+    --muted: #5d6b6d;
+    --line: #e4ddcd;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    font-family: "DM Sans", system-ui, -apple-system, sans-serif;
+    color: var(--ink);
+    background:
+      radial-gradient(1200px 500px at 50% -120px, #dcecd9 0%, transparent 70%),
+      var(--cream);
+    min-height: 100vh;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 520px; margin: 0 auto; padding: 40px 16px 32px; }
+
+  /* Header */
+  header { text-align: center; }
+  .portrait { position: relative; width: 124px; height: 124px; margin: 0 auto 18px; }
+  .portrait img.face {
+    width: 124px; height: 124px; border-radius: 50%;
+    object-fit: cover; object-position: 64% 38%;
+    border: 4px solid #fff;
+    box-shadow: 0 6px 24px rgba(22, 84, 95, .18);
+  }
+  .portrait img.badge {
+    position: absolute; right: -6px; bottom: -4px;
+    width: 46px; height: 46px; border-radius: 50%;
+    background: #fff; border: 3px solid #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,.12);
+  }
+  h1 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600; font-size: 2rem; letter-spacing: -.01em;
+    color: var(--teal-deep); margin: 0;
+  }
+  .byline { margin: 4px 0 0; font-size: .92rem; color: var(--muted); }
+  .tagline {
+    margin: 14px auto 0; max-width: 34ch;
+    font-family: "Fraunces", Georgia, serif; font-style: italic;
+    font-size: 1.08rem; color: var(--ink);
+  }
+  .socials { display: flex; justify-content: center; gap: 12px; margin-top: 16px; }
+  .socials a {
+    display: grid; place-items: center; width: 42px; height: 42px;
+    border-radius: 50%; background: var(--card); color: var(--teal-deep);
+    border: 1px solid var(--line); transition: transform .15s, background .15s;
+  }
+  .socials a:hover { transform: translateY(-2px); background: #eef6ec; }
+  .socials svg { width: 20px; height: 20px; fill: currentColor; }
+
+  /* Links */
+  main { margin-top: 28px; display: grid; gap: 12px; }
+  .link {
+    display: flex; align-items: center; gap: 14px;
+    padding: 16px 18px; min-height: 64px;
+    background: var(--card); color: var(--ink); text-decoration: none;
+    border: 1px solid var(--line); border-radius: 16px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.03);
+    transition: transform .15s, box-shadow .15s, border-color .15s;
+  }
+  .link:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(22,84,95,.10); border-color: #cfd9c9; }
+  .link .icon {
+    flex: none; display: grid; place-items: center;
+    width: 40px; height: 40px; border-radius: 12px;
+    background: #eaf3e8; color: var(--green);
+  }
+  .link .icon svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .link .text { flex: 1; min-width: 0; }
+  .link .title { display: block; font-weight: 700; font-size: 1rem; line-height: 1.3; }
+  .link .sub { display: block; font-size: .86rem; color: var(--muted); margin-top: 2px; }
+  .link .arrow { flex: none; color: #9aa7a8; font-size: 1.2rem; }
+  .tag {
+    display: inline-block; margin-left: 6px; padding: 1px 8px; border-radius: 99px;
+    font-size: .7rem; font-weight: 700; letter-spacing: .04em; vertical-align: 2px;
+    background: var(--lime); color: #1e3a12;
+  }
+
+  /* Featured: intake + shop */
+  .link.primary {
+    background: linear-gradient(135deg, var(--teal-deep), var(--teal));
+    color: #fff; border-color: transparent;
+  }
+  .link.primary .sub { color: #cfe6e6; }
+  .link.primary .icon { background: rgba(255,255,255,.14); color: #d9f0b8; }
+  .link.primary .arrow { color: #cfe6e6; }
+  .link.shop {
+    background: linear-gradient(135deg, var(--green), #5aae3f);
+    color: #fff; border-color: transparent;
+  }
+  .link.shop .sub { color: #e6f5dc; }
+  .link.shop .icon { background: rgba(255,255,255,.18); color: #fff; }
+  .link.shop .arrow { color: #e6f5dc; }
+
+  /* Lead form */
+  .connect {
+    margin-top: 28px; padding: 22px 18px 18px;
+    background: var(--card); border: 1px solid var(--line); border-radius: 20px;
+  }
+  .connect h2 {
+    font-family: "Fraunces", Georgia, serif; font-weight: 600;
+    font-size: 1.35rem; color: var(--teal-deep); margin: 0; text-align: center;
+  }
+  .connect p { text-align: center; color: var(--muted); font-size: .92rem; margin: 6px auto 14px; max-width: 36ch; }
+  .form-slot iframe { width: 100%; border: none; border-radius: 8px; }
+  .form-placeholder {
+    border: 2px dashed #cfd9c9; border-radius: 12px; padding: 28px 16px;
+    text-align: center; color: var(--muted); font-size: .9rem;
+  }
+
+  footer { margin-top: 32px; text-align: center; font-size: .78rem; color: var(--muted); }
+  footer p { margin: 4px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="portrait">
+      <img class="face" src="img/founder.jpg" alt="Quilla Xi Berry, founder of DYL Method" width="124" height="124">
+      <img class="badge" src="img/logo.jpg" alt="DYL Method logo" width="46" height="46">
+    </div>
+    <h1>DYL Method</h1>
+    <p class="byline">Quilla Xi Berry · Cellular Regeneration Detox Specialist</p>
+    <p class="tagline">Period freedom — detox + hormone harmony guided by nature &amp; the stars</p>
+    <nav class="socials" aria-label="Social media">
+      <a href="https://www.instagram.com/dylmethod/" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.4 2.2.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.2.4-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2 .4-.5.2-.9.4-1.3.8-.4.4-.6.8-.8 1.3-.2.4-.3 1-.4 2C2.7 9.5 2.7 9.9 2.7 12s0 2.5.1 3.7c.1 1.1.2 1.7.4 2 .2.5.4.9.8 1.3.4.4.8.6 1.3.8.4.2 1 .3 2 .4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2-.4.5-.2.9-.4 1.3-.8.4-.4.6-.8.8-1.3.2-.4.3-1 .4-2 .1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2-.2-.5-.4-.9-.8-1.3-.4-.4-.8-.6-1.3-.8-.4-.2-1-.3-2-.4C15.5 4 15.1 4 12 4zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 8.1a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4zm6.2-8.3a1.1 1.1 0 1 1-2.3 0 1.1 1.1 0 0 1 2.3 0z"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@thedetoxspecialist" target="_blank" rel="noopener" aria-label="TikTok">
+        <svg viewBox="0 0 24 24"><path d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.7a5.7 5.7 0 1 0 4.9 5.7V9a7.3 7.3 0 0 0 4.3 1.4V7.3a4.3 4.3 0 0 1-3.2-1.5z"/></svg>
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <a class="link primary" href="https://dylmethod.scoreapp.com" target="_blank" rel="noopener">
+      <span class="icon"><svg viewBox="0 0 24 24"><path d="M9 4h6M9 4a1 1 0 0 0-1 1v1h8V5a1 1 0 0 0-1-1M8 6H6a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1h-2"/><path d="M9 13l2 2 4-4"/></svg></span>
+      <span class="text">
+        <span class="title">Take the Free Health Intake</span>
+        <span class="sub">8 minutes · get your detailed health insights</span>
+      </span>
+      <span class="arrow" aria-hidden="true">›</span>
+    </a>
+
+    <a class="link shop" href="https://thedylmethod.com/products-list/collections/herbal-products" target="_blank" rel="noopener">
+      <span class="icon"><svg viewBox="0 0 24 24"><path d="M5 8h14l-1.2 11.1a1 1 0 0 1-1 .9H7.2a1 1 0 0 1-1-.9L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></span>
+      <span class="text">
+        <span class="title">Shop Herbal Teas &amp; Products</span>
+        <span class="sub">The DYL herbal shop</span>
+      </span>
+      <span class="arrow" aria-hidden="true">›</span>
+    </a>
+
+    <a class="link" href="https://black.thedylmethod.com/" target="_blank" rel="noopener">
+      <span class="icon"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2V5z"/><path d="M4 19a2 2 0 0 1 2-2h12v4H6"/><path d="M9 8h5"/></svg></span>
+      <span class="text">
+        <span class="title">“The Vitamin-D Deficiency Lie”<span class="tag">FREE</span></span>
+        <span class="sub">New 2026 eBook — download now</span>
+      </span>
+      <span class="arrow" aria-hidden="true">›</span>
+    </a>
+
+    <a class="link" href="https://dylbootcamp.com" target="_blank" rel="noopener">
+      <span class="icon"><svg viewBox="0 0 24 24"><path d="M12 3c1 3 4 4.5 4 8.5a4 4 0 0 1-8 0c0-1.8.8-3 1.8-4 .2 1.5 1 2.3 2.2 2.5C11.5 8 11 5.5 12 3z"/><path d="M8 17.5c1 1.6 2.4 2.5 4 2.5s3-.9 4-2.5"/></svg></span>
+      <span class="text">
+        <span class="title">Ignite Your Life Bootcamp</span>
+        <span class="sub">30 days with the DYL Method</span>
+      </span>
+      <span class="arrow" aria-hidden="true">›</span>
+    </a>
+
+    <a class="link" href="https://www.dylmethod.com/the-period-decoder-bundle" target="_blank" rel="noopener">
+      <span class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 4v2M12 18v2M4 12h2M18 12h2"/><circle cx="12" cy="12" r="2.5"/></svg></span>
+      <span class="text">
+        <span class="title">The Period Decoder Bundle</span>
+        <span class="sub">Understand what your cycle is telling you</span>
+      </span>
+      <span class="arrow" aria-hidden="true">›</span>
+    </a>
+  </main>
+
+  <section class="connect" id="connect">
+    <h2>Stay Connected</h2>
+    <p>Get tips, new releases, and a personal invite to your free health intake.</p>
+    <div class="form-slot">
+      <iframe
+        src="https://api.leadconnectorhq.com/widget/form/pC7hudV0xSiFqxvgFZUQ"
+        style="width:100%;height:905px;border:none;border-radius:8px"
+        id="inline-pC7hudV0xSiFqxvgFZUQ"
+        data-layout="{'id':'INLINE'}"
+        data-trigger-type="alwaysShow"
+        data-trigger-value=""
+        data-activation-type="alwaysActivated"
+        data-activation-value=""
+        data-deactivation-type="neverDeactivate"
+        data-deactivation-value=""
+        data-form-name="DYL Link Page"
+        data-height="905"
+        data-layout-iframe-id="inline-pC7hudV0xSiFqxvgFZUQ"
+        data-form-id="pC7hudV0xSiFqxvgFZUQ"
+        data-cookie-consent="true"
+        data-cookie-consent-provider="auto"
+        title="DYL Link Page">
+      </iframe>
+      <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+    </div>
+  </section>
+
+  <footer>
+    <p>© <span id="yr">2026</span> DYL Method · DYLMethod.com</p>
+    <p>Educational content only — not a substitute for medical advice.</p>
+  </footer>
+
+</div>
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
