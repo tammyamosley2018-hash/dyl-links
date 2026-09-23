@@ -176,7 +176,7 @@
 <body>
 
 <div class="sky" aria-hidden="true">
-  <video class="bgvid" autoplay muted loop playsinline preload="auto" poster="img/bg-poster.jpg">
+  <video class="bgvid" autoplay muted loop playsinline webkit-playsinline disablepictureinpicture disableremoteplayback preload="auto" poster="img/bg-poster.jpg">
     <source src="img/bg.mp4" type="video/mp4">
   </video>
   <div class="veil"></div>
@@ -296,5 +296,22 @@
 
 </div>
 <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+<script>
+  // In-app browsers (TikTok, Instagram) and Low Power Mode can block autoplay or ignore loop.
+  // Keep the background playing: force muted, retry play on first touch/scroll, restart on end.
+  (function () {
+    var v = document.querySelector('.bgvid');
+    if (!v || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    v.muted = true; v.defaultMuted = true; v.setAttribute('muted', '');
+    function play() { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+    v.addEventListener('ended', function () { v.currentTime = 0; play(); });
+    v.addEventListener('pause', function () { if (!document.hidden) setTimeout(play, 300); });
+    ['touchstart', 'pointerdown', 'scroll', 'click'].forEach(function (e) {
+      window.addEventListener(e, play, { once: true, passive: true });
+    });
+    document.addEventListener('visibilitychange', function () { if (!document.hidden) play(); });
+    if (v.readyState >= 2) play(); else v.addEventListener('canplay', play, { once: true });
+  })();
+</script>
 </body>
 </html>
