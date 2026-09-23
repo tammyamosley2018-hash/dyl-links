@@ -147,6 +147,41 @@
   }
   .divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: var(--glass-line); }
 
+
+  /* In their words: swipeable testimonial cards */
+  .voices { margin: 8px 0 2px; }
+  .voices h3 {
+    margin: 4px 0 10px; text-align: center;
+    font-family: "Fraunces", Georgia, serif; font-weight: 500; font-style: italic;
+    font-size: 1.15rem; color: var(--gold);
+  }
+  .quotes { position: relative; min-height: 180px; transition: height .4s ease; }
+  .quote {
+    position: absolute; left: 0; right: 0; top: 0; margin: 0;
+    padding: 18px 18px 14px; border-radius: 18px;
+    background: var(--glass); border: 1px solid var(--glass-line);
+    -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+    opacity: 0; transform: translateY(14px) scale(.98); pointer-events: none;
+    transition: opacity .8s ease, transform .8s ease;
+  }
+  .quote.active { opacity: 1; transform: none; pointer-events: auto; animation: float 6s ease-in-out infinite; }
+  @keyframes float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -6px; } }
+  .quote blockquote {
+    margin: 0; font-family: "Fraunces", Georgia, serif; font-size: 1.02rem; line-height: 1.45; color: var(--cream);
+  }
+  .quote blockquote::before { content: "“"; display: block; font-size: 2.4rem; line-height: .6; color: var(--lime); margin-bottom: 6px; }
+  .quote figcaption { margin-top: 10px; font-size: .85rem; font-weight: 700; color: var(--gold); }
+  .quote figcaption span { font-weight: 400; color: var(--soft); }
+  .dots { display: flex; justify-content: center; gap: 8px; margin: 12px 0 0; }
+  .dots button {
+    width: 8px; height: 8px; padding: 0; border: 0; border-radius: 99px; cursor: pointer;
+    background: rgba(255, 255, 255, .3); transition: width .3s, background .3s;
+  }
+  .dots button.on { width: 22px; background: var(--lime); }
+  @media (prefers-reduced-motion: reduce) { .quote, .quote.active { transition: none; animation: none; } }
+  .stories { display: block; text-align: center; margin: 8px 0 0; font-size: .92rem; font-weight: 700; color: var(--lime); text-decoration: none; }
+  .stories:hover { text-decoration: underline; }
+
   /* Form card */
   .connect {
     margin-top: 28px; padding: 22px 16px 14px;
@@ -222,6 +257,26 @@
       </span>
       <span class="arrow" aria-hidden="true">›</span>
     </a>
+
+    <section class="voices" aria-label="Client stories">
+      <h3>In their words</h3>
+      <div class="quotes">
+        <figure class="quote active">
+          <blockquote>My doctors always told me, “Oh, eat better…” And I’m like, “Okay, what kind of fruits and veggies? What am I supposed to eat?” You know, nobody ever got me.</blockquote>
+          <figcaption>Novia <span>· DYL client since 2020</span></figcaption>
+        </figure>
+        <figure class="quote">
+          <blockquote>I didn’t get the why. You all were the first people that really helped me to understand that.</blockquote>
+          <figcaption>Paulette <span>· Registered nurse &amp; DYL client</span></figcaption>
+        </figure>
+        <figure class="quote">
+          <blockquote>It’s like you actually are not kind of going through it alone… It really has been life changing.</blockquote>
+          <figcaption>Sierra <span>· DYL client</span></figcaption>
+        </figure>
+      </div>
+      <div class="dots" role="tablist" aria-label="Choose a story"></div>
+      <a class="stories" href="https://thedylmethod.com" target="_blank" rel="noopener">Hear their full stories ›</a>
+    </section>
 
     <div class="divider">Learn &amp; go deeper</div>
 
@@ -311,6 +366,40 @@
     });
     document.addEventListener('visibilitychange', function () { if (!document.hidden) play(); });
     if (v.readyState >= 2) play(); else v.addEventListener('canplay', play, { once: true });
+  })();
+</script>
+<script>
+  // Floating testimonial carousel: auto-advances, pauses on touch/hover, dots + swipe to navigate.
+  (function () {
+    var box = document.querySelector('.quotes');
+    if (!box) return;
+    var cards = box.querySelectorAll('.quote'), dots = document.querySelector('.dots');
+    var i = 0, timer = null, calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    cards.forEach(function (c, n) {
+      var b = document.createElement('button');
+      b.setAttribute('aria-label', 'Story ' + (n + 1));
+      b.addEventListener('click', function () { show(n); restart(); });
+      dots.appendChild(b);
+    });
+    function fit() { box.style.height = cards[i].offsetHeight + 'px'; }
+    function show(n) {
+      i = (n + cards.length) % cards.length;
+      cards.forEach(function (c, k) { c.classList.toggle('active', k === i); c.setAttribute('aria-hidden', k !== i); });
+      dots.querySelectorAll('button').forEach(function (b, k) { b.classList.toggle('on', k === i); });
+      fit();
+    }
+    function restart() { clearInterval(timer); if (!calm) timer = setInterval(function () { show(i + 1); }, 6500); }
+    box.addEventListener('mouseenter', function () { clearInterval(timer); });
+    box.addEventListener('mouseleave', restart);
+    var x0 = null;
+    box.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; clearInterval(timer); }, { passive: true });
+    box.addEventListener('touchend', function (e) {
+      if (x0 !== null) { var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) show(i + (dx < 0 ? 1 : -1)); }
+      x0 = null; restart();
+    });
+    window.addEventListener('resize', fit);
+    document.fonts && document.fonts.ready.then(fit);
+    show(0); restart();
   })();
 </script>
 </body>
